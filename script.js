@@ -1,7 +1,7 @@
 const CONFIG = {
   // DEMO_MODE true mantiene el juego abierto para enseñárselo al cliente.
   // Cámbialo a false antes de publicar la campaña definitiva.
-  DEMO_MODE: false,
+  DEMO_MODE: true,
   CAMPAIGN_START: "2026-10-01T06:00:00Z", // 08:00 en España peninsular
   CAMPAIGN_END: "2026-10-07T21:59:59Z",   // 23:59 en España peninsular
   TYPEFORM_URL: "https://www.typeform.com/"
