@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Encuentra las seis oportunidades de ASISA Hogar y consigue 10 metas VENTE.">
+  <title>Reto Octubre 2026 | ASISA Hogar VENTE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="ASISA Hogar VENTE, ir al inicio">
+      <img src="assets/logotipo.png" alt="ASISA Hogar VENTE">
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Reto Octubre 2026</a>
+      <a href="https://www.typeform.com/" target="_blank" rel="noopener noreferrer">Canjear metas</a>
+      <a href="#juego">Jugar</a>
+    </nav>
+  </header>
+
+  <div class="top-progress" id="top-progress" aria-label="Progreso del reto">
+    <div class="top-progress-inner">
+      <span class="top-progress-label">Oportunidades encontradas</span>
+      <div class="progress-scale">
+        <span class="progress-line" aria-hidden="true"><span id="progress-fill"></span></span>
+        <span class="progress-step" data-progress-step="1">1</span>
+        <span class="progress-step" data-progress-step="2">2</span>
+        <span class="progress-step" data-progress-step="3">3</span>
+        <span class="progress-step" data-progress-step="4">4</span>
+        <span class="progress-step" data-progress-step="5">5</span>
+        <span class="progress-step" data-progress-step="6">6</span>
+      </div>
+    </div>
+  </div>
+
+  <main id="app">
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <p class="hero-overline">Encuentra las oportunidades</p>
+        <h1>¿Cuánto sabes de hogar?</h1>
+        <p class="hero-copy">Hay casas que todos conocemos.<br>Y en algunas de ellas… las oportunidades están por todas partes.</p>
+        <p class="hero-question">¿Serás capaz de encontrarlas?</p>
+        <button class="button button-primary" id="start-game" type="button">¡Empezar el juego!</button>
+      </div>
+    </section>
+
+    <section class="game-section" id="juego" aria-labelledby="game-title">
+      <div class="game-panel">
+        <div class="section-heading">
+          <h2 id="game-title">Encuentra las 6 oportunidades relacionadas con ASISA Hogar</h2>
+          <p>Haz clic en cada escena y demuestra que sabes detectarlas.</p>
+          <p class="progress-copy" id="progress-text" aria-live="polite">0 de 6 oportunidades encontradas</p>
+        </div>
+        <img class="house-banner" src="assets/casa-general.png" alt="Casa de la familia Simpson">
+        <div class="scene-grid" id="scene-grid"></div>
+      </div>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <div class="instructions">
+        <h2>Cuando respondas a todas las escenas correctamente,<br>aparecerá un pop up</h2>
+        <p>Descarga esa imagen y guárdala para demostrar que has ganado las <strong>10 metas de este mes</strong>. Puedes reclamar tus metas a continuación indicando tu nombre y subiendo la imagen de prueba.</p>
+        <a class="button button-outline" href="https://www.typeform.com/" target="_blank" rel="noopener noreferrer">Canjear metas</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/logotipo.png" alt="ASISA Hogar VENTE">
+    <p>Dinámica interna · Octubre 2026</p>
+  </footer>
+
+  <div class="modal" id="quiz-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-panel quiz-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" aria-label="Cerrar pregunta" data-close-modal>×</button>
+      <div class="quiz-image"><img id="modal-image" src="" alt=""></div>
+      <div class="quiz-content">
+        <p class="scene-number" id="modal-number"></p>
+        <h2 id="modal-title"></h2>
+        <p class="question" id="modal-question"></p>
+        <form id="answer-form">
+          <fieldset id="answer-options"><legend class="sr-only">Elige una respuesta</legend></fieldset>
+          <p class="feedback" id="answer-feedback" aria-live="polite"></p>
+          <div class="modal-actions">
+            <button class="button button-primary" id="validate-answer" type="submit">Validar respuesta</button>
+            <button class="button button-outline" id="next-scene" type="button" disabled>Siguiente escena</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal" id="victory-modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <section class="modal-panel victory-panel" role="dialog" aria-modal="true" aria-labelledby="victory-title">
+      <button class="modal-close light" id="close-victory" type="button" aria-label="Cerrar recompensa">×</button>
+      <p class="victory-kicker">¡Reto completado!</p>
+      <h2 id="victory-title">¡Has conseguido 10 metas VENTE!</h2>
+      <p>Has encontrado las 6 oportunidades de ASISA Hogar y demostrado que sabes detectar las necesidades de cada cliente.</p>
+      <p>Descarga la imagen, guárdala como justificante y accede después a “Canjear mis metas”.</p>
+      <div class="victory-actions">
+        <button class="button button-light" id="download-reward" type="button">Descargar mis 10 metas</button>
+        <a class="button button-ghost" href="https://www.typeform.com/" target="_blank" rel="noopener noreferrer">Canjear mis metas</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="closed-screen" id="closed-screen" hidden aria-labelledby="closed-title">
+    <img src="assets/logotipo.png" alt="ASISA Hogar VENTE">
+    <p class="eyebrow">Reto Octubre 2026</p>
+    <h1 id="closed-title">El juego ha finalizado</h1>
+    <p>Gracias por participar. Os esperamos en el siguiente reto para poder conseguir más metas.</p>
+    <a class="button button-primary" href="https://www.typeform.com/" target="_blank" rel="noopener noreferrer">Canjear mis metas</a>
+  </section>
+
+  <noscript><p class="noscript">Necesitas activar JavaScript para participar en este juego.</p></noscript>
+</body>
+</html>
